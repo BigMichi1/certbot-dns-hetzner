@@ -3,7 +3,8 @@
 ![Tests, Coverage](https://github.com/ctrlaltcoop/certbot-dns-hetzner/workflows/Tests,%20Coverage/badge.svg?branch=master)
 [![PyPI version](https://badge.fury.io/py/certbot-dns-hetzner.svg)](https://badge.fury.io/py/certbot-dns-hetzner)
 ![Supported Python](https://img.shields.io/pypi/pyversions/certbot-dns-hetzner)
-![Snapcraft.io package](https://snapcraft.io/certbot-dns-hetzner)
+
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/certbot-dns-hetzner)
 
 This certbot plugin automates the process of
 completing a dns-01 challenge by creating, and
