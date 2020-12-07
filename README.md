@@ -3,6 +3,7 @@
 ![Tests, Coverage](https://github.com/ctrlaltcoop/certbot-dns-hetzner/workflows/Tests,%20Coverage/badge.svg?branch=master)
 [![PyPI version](https://badge.fury.io/py/certbot-dns-hetzner.svg)](https://badge.fury.io/py/certbot-dns-hetzner)
 ![Supported Python](https://img.shields.io/pypi/pyversions/certbot-dns-hetzner)
+![Snapcraft.io package](https://snapcraft.io/certbot-dns-hetzner)
 
 This certbot plugin automates the process of
 completing a dns-01 challenge by creating, and
@@ -10,10 +11,30 @@ subsequently removing, TXT records using the Hetzner DNS API.
 
 ## Install
 
-Install this package via pip in the same python environment where you installed your certbot.
+Install this package via snap after certbot has been installed via snap
 
 ```
-pip install certbot-dns-hetzner
+snap install certbot-dns-hetzner
+snap connect certbot:plugin certbot-dns-hetzner
+snap connect certbot-dns-hetzner:certbot-metadata certbot:certbot-metadata
+```
+
+to verify that the installation was successfull execute the `certbot plugins`, which should list the plugin 
+
+```
+* dns-hetzner
+Description: Obtain certificates using a DNS TXT record (if you are using
+Hetzner for DNS).
+Interfaces: IAuthenticator, IPlugin
+Entry point: dns-hetzner = certbot_dns_hetzner.dns_hetzner:Authenticator
+```
+
+when the plugin is not listed, you should check that `snap connections` has the following entries
+
+```
+Interface            Plug                                  Slot                         Notes
+content[metadata-1]  certbot-dns-hetzner:certbot-metadata  certbot:certbot-metadata     manual
+content[certbot-1]   certbot:plugin                        certbot-dns-hetzner:certbot  manual
 ```
 
 ## Usage
